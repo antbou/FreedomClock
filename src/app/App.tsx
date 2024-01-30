@@ -6,8 +6,10 @@ const targetDateTime = DateTime.fromISO(import.meta.env.VITE_TARGET_DATE_TIME);
 
 function App() {
   return (
-    <div className="App">
-      <h1 className="text-4xl">Counting down to freedom</h1>
+    <div className="flex flex-col items-center w-full h-full gap-8 sm:gap-16">
+      <span className="text-2xl sm:text-5xl font-semibold text-center tracking-widest px-2">
+        Counting down to freedom !
+      </span>
       {targetDateTime.isValid && (
         <CountdownTimer targetDateTime={targetDateTime} />
       )}
