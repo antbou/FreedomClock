@@ -22,27 +22,38 @@ function App() {
     },
   };
 
+  const isCountdownZero = targetDateTime.diffNow().as("seconds") <= 1;
+
   return (
     <div className="flex flex-col items-center w-full h-full gap-8 sm:gap-16">
-      <span className="text-2xl sm:text-5xl font-semibold text-center tracking-widest px-2">
-        🪖Counting down to freedom🏝️
-      </span>
+      <div className="shadow-md rounded-lg flex flex-col items-center gap-5 p-5">
+        <span className="text-2xl sm:text-3xl font-semibold text-center tracking-widest px-2">
+          🪖Counting down to freedom🏝️
+        </span>
+      </div>
       {targetDateTime.isValid && (
         <CountdownTimer targetDateTime={targetDateTime} fireworks={ref} />
       )}
       <Fireworks
         ref={ref}
         options={options}
-        className="cursor-crosshair"
+        className={isCountdownZero ? "cursor-crosshair" : "hidden"}
         style={{
           top: 0,
           left: 0,
           width: "100%",
           height: "100%",
           position: "fixed",
+          zIndex: 0,
         }}
-        autostart={false}
+        autostart={isCountdownZero}
       />
+      {!isCountdownZero && (
+        <p className="text-xs sm:text-base text-center text-slate-400">
+          Error. 6.5, you are still in the army. Please try again at the end of
+          the countdown.
+        </p>
+      )}
     </div>
   );
 }
