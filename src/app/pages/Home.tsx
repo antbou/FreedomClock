@@ -1,19 +1,21 @@
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import { DateTime } from "luxon";
 import { Fireworks } from "@fireworks-js/react";
 import type { FireworksHandlers } from "@fireworks-js/react";
-import CountdownTimer from "@components/countdown/CountdownTimer";
 import { useNavigate } from "react-router-dom";
-
+import CountdownTimer from "@components/countdown/CountdownTimer";
+import useKeyDown from "@hooks/useKeyDown";
 import "@/styles/App.css";
 
 function Home() {
   const navigate = useNavigate();
+  const ref = useRef<FireworksHandlers>(null);
 
   const targetDateTime = DateTime.fromISO(
     import.meta.env.VITE_TARGET_DATE_TIME
   );
-  const ref = useRef<FireworksHandlers>(null);
+
+  const isCountdownZero = targetDateTime.diffNow().as("seconds") <= 1;
   const options = {
     acceleration: 1.02,
     particles: 150,
@@ -24,23 +26,9 @@ function Home() {
     },
   };
 
-  const isCountdownZero = targetDateTime.diffNow().as("seconds") <= 1;
-
-  // TODO: Move this to a custom hook
-  useEffect(() => {
-    const handleKeyPress = (e: KeyboardEvent) => {
-      if (e.code === "Space") {
-        console.log("Spacebar pressed");
-        navigate("/game");
-      }
-    };
-
-    window.addEventListener("keydown", handleKeyPress);
-
-    return () => {
-      window.removeEventListener("keydown", handleKeyPress);
-    };
-  }, [navigate]);
+  useKeyDown(() => {
+    navigate("/game");
+  }, ["Space"]);
 
   return (
     <div className="flex flex-col items-center w-full h-full gap-8 sm:gap-16">
