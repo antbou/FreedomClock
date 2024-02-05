@@ -1,0 +1,80 @@
+{"frames": {
+
+"NES_Soldier_Carry_Run_strip4-0.png":
+{
+	"frame": {"x":1,"y":59,"w":14,"h":32},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":14,"h":32},
+	"sourceSize": {"w":16,"h":32}
+},
+"NES_Soldier_Carry_Run_strip4-1.png":
+{
+	"frame": {"x":28,"y":1,"w":16,"h":32},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":32},
+	"sourceSize": {"w":16,"h":32}
+},
+"NES_Soldier_Carry_Run_strip4-2.png":
+{
+	"frame": {"x":46,"y":1,"w":13,"h":31},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":13,"h":31},
+	"sourceSize": {"w":16,"h":32}
+},
+"NES_Soldier_Carry_Run_strip4-3.png":
+{
+	"frame": {"x":19,"y":35,"w":16,"h":31},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":31},
+	"sourceSize": {"w":16,"h":32}
+},
+"NES_Soldier_Jump_Kick_strip4-0.png":
+{
+	"frame": {"x":35,"y":53,"w":16,"h":24},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":8,"w":16,"h":24},
+	"sourceSize": {"w":24,"h":32}
+},
+"NES_Soldier_Jump_Kick_strip4-1.png":
+{
+	"frame": {"x":1,"y":25,"w":16,"h":32},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":32},
+	"sourceSize": {"w":24,"h":32}
+},
+"NES_Soldier_Jump_Kick_strip4-2.png":
+{
+	"frame": {"x":1,"y":1,"w":22,"h":25},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":2,"y":0,"w":22,"h":25},
+	"sourceSize": {"w":24,"h":32}
+},
+"NES_Soldier_Jump_Kick_strip4-3.png":
+{
+	"frame": {"x":35,"y":53,"w":16,"h":24},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":8,"w":16,"h":24},
+	"sourceSize": {"w":24,"h":32}
+}},
+"animations": {
+	"NES_Soldier_Carry_Run_strip4": ["NES_Soldier_Carry_Run_strip4-0.png","NES_Soldier_Carry_Run_strip4-1.png","NES_Soldier_Carry_Run_strip4-2.png","NES_Soldier_Carry_Run_strip4-3.png"],
+	"NES_Soldier_Jump_Kick_strip4": ["NES_Soldier_Jump_Kick_strip4-0.png","NES_Soldier_Jump_Kick_strip4-1.png","NES_Soldier_Jump_Kick_strip4-2.png","NES_Soldier_Jump_Kick_strip4-3.png"]
+},
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.1",
+	"image": "character.png",
+	"format": "RGBA8888",
+	"size": {"w":60,"h":74},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:f86c5442e4e7d8ae4df9b5a42f1f3149:5dfcd5b473ffba98e20c2e66ad2286a6:42e475aa4a03af306bdc7acb5ff91d19$"
+}
+}
