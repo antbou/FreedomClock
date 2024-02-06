@@ -1,21 +1,19 @@
 import { FC, useEffect, useState } from "react";
 import { AnimatedSprite, Container } from "@pixi/react";
 import { Texture, Resource, Assets } from "pixi.js";
-import { SOLDIER_POSITION } from "@/app/globals/constants";
+import { ANIMATION_SPEED } from "@/app/globals/constants";
 
 interface JumpingSoldierProps {
   visible: boolean;
   gameSpeed: number;
-  yPosition: number;
 }
 
 export const JumpingSoldier: FC<JumpingSoldierProps> = ({
   visible,
   gameSpeed,
-  yPosition,
 }) => {
   const [frames, setFrames] = useState<Texture<Resource>[]>([]);
-  const [animationSpeed, setAnimationSpeed] = useState<number>(-0.1);
+  const [animationSpeed, setAnimationSpeed] = useState<number>(ANIMATION_SPEED);
 
   useEffect(() => {
     Assets.load("/soldier.json").then((data): void => {
@@ -29,9 +27,9 @@ export const JumpingSoldier: FC<JumpingSoldierProps> = ({
   }, []);
 
   useEffect(() => {
-    // Increase animation speed every 2 game speed
-    if (gameSpeed % 2 === 0) {
-      setAnimationSpeed(animationSpeed + 0.1);
+    // Increase animation speed every 20 game speed
+    if (gameSpeed % 20 === 0 && animationSpeed < 0.1) {
+      setAnimationSpeed(animationSpeed + 0.01);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [gameSpeed]);
@@ -46,8 +44,6 @@ export const JumpingSoldier: FC<JumpingSoldierProps> = ({
         animationSpeed={animationSpeed}
         isPlaying={true}
         textures={frames}
-        x={SOLDIER_POSITION.X}
-        y={yPosition}
         scale={2}
       />
     </Container>

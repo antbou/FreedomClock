@@ -1,26 +1,26 @@
-import { FC, useState } from "react";
+import { FC, useContext, useState } from "react";
 import { TilingSprite, Container, useTick } from "@pixi/react";
 import SpriteImage from "@/assets/sprite.png";
-import { SOLDIER_POSITION } from "@/app/globals/constants";
+import { GROUND_SPEED, SOLDIER_POSITION } from "@/app/globals/constants";
+import { AppContext } from "@/app/globals/context";
 
-interface GroundProps {
-  gameSpeed: number;
-}
+interface GroundProps {}
 
-export const Ground: FC<GroundProps> = ({ gameSpeed }) => {
+export const Ground: FC<GroundProps> = () => {
   const [xBackground, setXBackground] = useState(-1);
+  const { gameSpeed } = useContext(AppContext);
 
   useTick(() => {
-    setXBackground(xBackground - gameSpeed * 0.3);
+    setXBackground(xBackground - gameSpeed * GROUND_SPEED);
   }, gameSpeed > 0);
 
   return (
-    <Container position={[0, SOLDIER_POSITION.Y + 20]}>
+    <Container position={[0, SOLDIER_POSITION.Y + 29]}>
       <TilingSprite
         width={960}
         height={42}
         image={SpriteImage}
-        tilePosition={{ x: xBackground, y: SOLDIER_POSITION.Y + 8 }}
+        tilePosition={{ x: xBackground, y: 41 }}
       />
     </Container>
   );
