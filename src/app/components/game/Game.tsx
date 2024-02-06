@@ -10,7 +10,7 @@ import { Ground } from "./ground/Ground";
 import { PixiObject } from "@/app/globals/interfaces";
 
 export const Game = () => {
-  const [gameOver] = useState(false);
+  const [gameOver, setGameOver] = useState(false);
   const [gameSpeed, setGameSpeed] = useState(0);
   const [score, setScore] = useState(0);
   const [soldierRef, setSoldierRef] = useState<PixiObject | null>(null);
@@ -44,6 +44,23 @@ export const Game = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [score]);
 
+  const detectCollision = (ref: PixiObject) => {
+    const soldierBounds = soldierRef?.getBounds();
+    const obstacleBounds = ref.getBounds();
+
+    if (!obstacleBounds || !soldierBounds) return;
+
+    if (
+      soldierBounds.x < obstacleBounds.x + obstacleBounds.width &&
+      soldierBounds.x + soldierBounds.width > obstacleBounds.x &&
+      soldierBounds.y < obstacleBounds.y + obstacleBounds.height - 30 &&
+      soldierBounds.y + soldierBounds.height - 30 > obstacleBounds.y
+    ) {
+      setGameOver(true);
+      setGameSpeed(GAME_SPEED.DEFAULT);
+    }
+  };
+
   return (
     <Stage
       width={GAME_SIZE.WIDTH}
@@ -56,6 +73,7 @@ export const Game = () => {
             gameSpeed: gameSpeed,
             gameScore: score,
             gameOver: gameOver,
+            detectCollision: detectCollision,
           }}
         >
           <Soldier setRef={setSoldierRef} />

@@ -1,4 +1,4 @@
-import { Container, Sprite, useTick } from "@pixi/react";
+import { Container, useTick } from "@pixi/react";
 import Boots from "@/assets/KS.png";
 import { FC, useCallback, useContext, useMemo, useState } from "react";
 import {
@@ -8,6 +8,7 @@ import {
 } from "@/app/globals/constants";
 import { AppContext } from "@/app/globals/context";
 import Fas from "@/assets/fas90.png";
+import { Obstacle } from "./Obstacle";
 
 interface ObstaclesProps {}
 
@@ -29,7 +30,7 @@ export const Obstacles: FC<ObstaclesProps> = () => {
         image: Fas,
         yPosition: 65,
         scale: 0.55,
-        rotation: 3.65 * Math.PI,
+        rotation: 1.5 * Math.PI,
       },
     ],
     []
@@ -51,7 +52,6 @@ export const Obstacles: FC<ObstaclesProps> = () => {
         x: obstacle.x - gameSpeed * GROUND_SPEED * delta,
       }))
     );
-
     // Remove obstacles that are off the screen
     setObstacles((prevObstacles) =>
       prevObstacles.filter((obstacle) => obstacle.x > -50)
@@ -86,12 +86,13 @@ export const Obstacles: FC<ObstaclesProps> = () => {
           (type) => type.type === obstacle.type
         );
         return (
-          <Sprite
+          <Obstacle
             key={index}
-            image={config?.image}
-            position={[obstacle.x, config?.yPosition || 0]}
-            scale={config?.scale}
-            rotation={config?.rotation}
+            image={config?.image || ""}
+            xPosition={obstacle.x || 0}
+            yPosition={config?.yPosition || 0}
+            scale={config?.scale || 1}
+            rotation={config?.rotation || 0}
           />
         );
       })}
