@@ -8,8 +8,14 @@ import { Soldier } from "./soldier/Soldier";
 import { Obstacles } from "./obstacles/Obstacles";
 import { Ground } from "./ground/Ground";
 import { PixiObject } from "@/app/globals/interfaces";
+import { GameOver } from "./GameOver/GameOver";
+import { BtnRestart } from "./BtnRestart/BtnRestart";
 
-export const Game = () => {
+interface GameProps {
+  restartGame: () => void;
+}
+
+export const Game = ({ restartGame }: GameProps) => {
   const [gameOver, setGameOver] = useState(false);
   const [gameSpeed, setGameSpeed] = useState(0);
   const [score, setScore] = useState(0);
@@ -61,6 +67,13 @@ export const Game = () => {
     }
   };
 
+  const handleResetBtn = () => {
+    setGameOver(false);
+    setGameSpeed(GAME_SPEED.DEFAULT);
+    setScore(0);
+    restartGame();
+  };
+
   return (
     <Stage
       width={GAME_SIZE.WIDTH}
@@ -83,6 +96,10 @@ export const Game = () => {
       </Container>
       <Container>
         <Text text={`Score: ${score}`} x={0} y={0} />
+      </Container>
+      <Container visible={gameOver}>
+        <GameOver />
+        <BtnRestart restartGame={handleResetBtn} />
       </Container>
     </Stage>
   );

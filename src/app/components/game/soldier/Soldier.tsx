@@ -8,6 +8,7 @@ import { JUMP_STAGE } from "@/app/globals/enums";
 import { SOLDIER_POSITION } from "@/app/globals/constants";
 import { AppContext } from "@/app/globals/context";
 import { PixiObject } from "@/app/globals/interfaces";
+import { DeadSoldier } from "./components/DeadSoldier/DeadSoldier";
 
 interface SoldierProps {
   setRef: (ref: PixiObject) => void;
@@ -17,7 +18,7 @@ let jumpProgress = 0;
 export const Soldier: FC<SoldierProps> = ({ setRef }) => {
   const [jump, setJump] = useState<number>(JUMP_STAGE.DEFAULT);
   const [soldierYPos, setsoldierYPos] = useState<number>(SOLDIER_POSITION.Y);
-  const { gameSpeed } = useContext(AppContext);
+  const { gameSpeed, gameOver } = useContext(AppContext);
   const soldierRef = useRef<PixiObject>(null);
 
   useEffect(() => {
@@ -28,7 +29,7 @@ export const Soldier: FC<SoldierProps> = ({ setRef }) => {
   }, [soldierRef]);
 
   useKeyDown(() => {
-    if (jump !== JUMP_STAGE.DEFAULT) return;
+    if (jump !== JUMP_STAGE.DEFAULT && !gameOver) return;
 
     setJump(JUMP_STAGE.START);
   }, ["Space", "ArrowUp"]);
@@ -52,19 +53,26 @@ export const Soldier: FC<SoldierProps> = ({ setRef }) => {
     }
   }, gameSpeed > 0);
 
+  useEffect(() => {
+    if (gameOver) {
+      setsoldierYPos(SOLDIER_POSITION.Y);
+    }
+  }, [gameOver]);
+
   return (
     <Container
       zIndex={2}
       position={[SOLDIER_POSITION.X, soldierYPos]}
       ref={soldierRef}
     >
-      <DefaultSoldier visible={gameSpeed === 0} />
+      <DefaultSoldier visible={gameSpeed === 0 && !gameOver} />
+      <DeadSoldier visible={gameOver} />
       <RunningSoldier
         visible={gameSpeed > 0 && jump === JUMP_STAGE.DEFAULT}
         gameSpeed={gameSpeed}
       />
       <JumpingSoldier
-        visible={jump !== JUMP_STAGE.DEFAULT}
+        visible={gameSpeed > 0 && jump !== JUMP_STAGE.DEFAULT}
         gameSpeed={gameSpeed}
       />
     </Container>

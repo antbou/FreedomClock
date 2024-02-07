@@ -1,0 +1,47 @@
+{"frames": {
+
+"NES_Soldier_Carry_Run_strip4-0.png":
+{
+	"frame": {"x":19,"y":1,"w":14,"h":32},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":14,"h":32},
+	"sourceSize": {"w":16,"h":32}
+},
+"NES_Soldier_Carry_Run_strip4-1.png":
+{
+	"frame": {"x":1,"y":1,"w":16,"h":32},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":32},
+	"sourceSize": {"w":16,"h":32}
+},
+"NES_Soldier_Carry_Run_strip4-2.png":
+{
+	"frame": {"x":35,"y":1,"w":13,"h":31},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":13,"h":31},
+	"sourceSize": {"w":16,"h":32}
+},
+"NES_Soldier_Carry_Run_strip4-3.png":
+{
+	"frame": {"x":1,"y":35,"w":16,"h":31},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":31},
+	"sourceSize": {"w":16,"h":32}
+}},
+"animations": {
+	"NES_Soldier_Carry_Run_strip4": ["NES_Soldier_Carry_Run_strip4-0.png","NES_Soldier_Carry_Run_strip4-1.png","NES_Soldier_Carry_Run_strip4-2.png","NES_Soldier_Carry_Run_strip4-3.png"]
+},
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.1",
+	"image": "running-character.png",
+	"format": "RGBA8888",
+	"size": {"w":49,"h":52},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:4088d825ef46708c022446b0c62c2458:f20b4836e65ce0fb36aa93b9bf6b3049:2d176851d29af75fdbb1f3138be469dc$"
+}
+}

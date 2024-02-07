@@ -16,8 +16,8 @@ export const JumpingSoldier: FC<JumpingSoldierProps> = ({
   const [animationSpeed, setAnimationSpeed] = useState<number>(ANIMATION_SPEED);
 
   useEffect(() => {
-    Assets.load("/soldier.json").then((data): void => {
-      const textures = data.animations["NES_Soldier_Jump_Kick_strip4"];
+    Assets.load("/jumping-character.json").then((data): void => {
+      const textures = data.textures;
       setFrames(
         Object.keys(textures).map((key: string) => {
           return textures[key];
@@ -42,7 +42,7 @@ export const JumpingSoldier: FC<JumpingSoldierProps> = ({
     <Container visible={visible}>
       <AnimatedSprite
         animationSpeed={animationSpeed}
-        isPlaying={true}
+        isPlaying={visible}
         textures={frames}
         scale={2}
       />

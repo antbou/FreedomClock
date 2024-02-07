@@ -14,10 +14,10 @@ export const RunningSoldier: FC<RunningSoldierProps> = ({
 }) => {
   const [frames, setFrames] = useState<Texture<Resource>[]>([]);
   const [animationSpeed, setAnimationSpeed] = useState<number>(ANIMATION_SPEED);
-
   useEffect(() => {
-    Assets.load("/soldier.json").then((data): void => {
-      const textures = data.animations["NES_Soldier_Carry_Run_strip4"];
+    Assets.loader.parsers;
+    Assets.load("/running-character.json").then((data): void => {
+      const textures = data.textures;
       setFrames(
         Object.keys(textures).map((key: string) => {
           return textures[key];

@@ -173,24 +173,7 @@
         </struct>
         <key>individualSpriteSettings</key>
         <map type="IndividualSpriteSettingsMap">
-            <key type="filename">../../../../Users/Anthony/Desktop/Textures/NES_Soldier_Carry_Run_strip4/NES_Soldier_Carry_Run_strip4-0.png</key>
-            <key type="filename">../../../../Users/Anthony/Desktop/Textures/NES_Soldier_Carry_Run_strip4/NES_Soldier_Carry_Run_strip4-1.png</key>
-            <key type="filename">../../../../Users/Anthony/Desktop/Textures/NES_Soldier_Carry_Run_strip4/NES_Soldier_Carry_Run_strip4-2.png</key>
-            <key type="filename">../../../../Users/Anthony/Desktop/Textures/NES_Soldier_Carry_Run_strip4/NES_Soldier_Carry_Run_strip4-3.png</key>
-            <struct type="IndividualSpriteSettings">
-                <key>pivotPoint</key>
-                <point_f>0,0</point_f>
-                <key>spriteScale</key>
-                <double>1</double>
-                <key>scale9Enabled</key>
-                <false/>
-                <key>scale9Borders</key>
-                <rect>4,8,8,16</rect>
-                <key>scale9Paddings</key>
-                <rect>4,8,8,16</rect>
-                <key>scale9FromFile</key>
-                <false/>
-            </struct>
+            <key type="filename">../../../../Users/Anthony/Desktop/Textures/NES_DEAD/NES_Soldier_Death-0.png</key>
             <key type="filename">../../../../Users/Anthony/Desktop/Textures/NES_Soldier_Jump_Kick_strip4/NES_Soldier_Jump_Kick_strip4-0.png</key>
             <key type="filename">../../../../Users/Anthony/Desktop/Textures/NES_Soldier_Jump_Kick_strip4/NES_Soldier_Jump_Kick_strip4-1.png</key>
             <key type="filename">../../../../Users/Anthony/Desktop/Textures/NES_Soldier_Jump_Kick_strip4/NES_Soldier_Jump_Kick_strip4-2.png</key>
@@ -209,6 +192,40 @@
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
+            <key type="filename">../../../../Users/Anthony/Desktop/Textures/NES_DEAD/NES_Soldier_Death-1.png</key>
+            <key type="filename">../../../../Users/Anthony/Desktop/Textures/NES_DEAD/NES_Soldier_Death-2.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0,0</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>10,8,20,16</rect>
+                <key>scale9Paddings</key>
+                <rect>10,8,20,16</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">../../../../Users/Anthony/Desktop/Textures/NES_Soldier_Carry_Run_strip4/NES_Soldier_Carry_Run_strip4-0.png</key>
+            <key type="filename">../../../../Users/Anthony/Desktop/Textures/NES_Soldier_Carry_Run_strip4/NES_Soldier_Carry_Run_strip4-1.png</key>
+            <key type="filename">../../../../Users/Anthony/Desktop/Textures/NES_Soldier_Carry_Run_strip4/NES_Soldier_Carry_Run_strip4-2.png</key>
+            <key type="filename">../../../../Users/Anthony/Desktop/Textures/NES_Soldier_Carry_Run_strip4/NES_Soldier_Carry_Run_strip4-3.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0,0</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>4,8,8,16</rect>
+                <key>scale9Paddings</key>
+                <rect>4,8,8,16</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
         </map>
         <key>fileLists</key>
         <map type="SpriteSheetMap">
@@ -218,6 +235,7 @@
                 <array>
                     <filename>../../../../Users/Anthony/Desktop/Textures/NES_Soldier_Carry_Run_strip4</filename>
                     <filename>../../../../Users/Anthony/Desktop/Textures/NES_Soldier_Jump_Kick_strip4</filename>
+                    <filename>../../../../Users/Anthony/Desktop/Textures/NES_DEAD</filename>
                 </array>
             </struct>
         </map>
