@@ -3,7 +3,7 @@ import useKeyDown from "@hooks/useKeyDown";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-function Game() {
+const Game = () => {
   const [shouldRestart, setShouldRestart] = useState(false);
   const navigate = useNavigate();
 
@@ -32,6 +32,6 @@ function Game() {
       ) : null}
     </div>
   );
-}
+};
 
 export default Game;

@@ -37,7 +37,7 @@ export const Obstacles: FC<ObstaclesProps> = () => {
   );
 
   const minDistanceBetweenObstacles = 175;
-  const maxNumberOfObstacles = 1;
+  const maxNumberOfObstacles = 3;
 
   const calculateObstacleCreationProbability = useCallback(() => {
     const baseProbability = 0.02;

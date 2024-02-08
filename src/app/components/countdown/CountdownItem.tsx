@@ -1,4 +1,9 @@
-const CountdownItem = ({ value, unit }: { value: number; unit: string }) => (
+interface CountdownItemProps {
+  value: number;
+  unit: string;
+}
+
+const CountdownItem = ({ value, unit }: CountdownItemProps) => (
   <div className="flex flex-col gap-5 relative">
     <div className="h-16 w-16 sm:w-32 sm:h-32 lg:w-40 lg:h-40 flex justify-between items-center bg-[#343650] rounded-lg">
       <div className="relative h-2.5 w-2.5 sm:h-3 sm:w-3 !-left-[6px] rounded-full bg-[#191A24]"></div>

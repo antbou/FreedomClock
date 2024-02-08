@@ -1,26 +1,11 @@
-import useCountdown from "@hooks/useCountdown";
-import { DateTime } from "luxon";
-import FreeDom from "@components/countdown/Freedom";
+import { Duration } from "luxon";
 import CountdownItem from "./CountdownItem";
-import { FireworksHandlers } from "@fireworks-js/react";
-import { RefObject } from "react";
 
-const CountdownTimer = ({
-  targetDateTime,
-  fireworks,
-}: {
-  targetDateTime: DateTime;
-  fireworks: RefObject<FireworksHandlers>;
-}) => {
-  const duration = useCountdown(() => targetDateTime);
+interface CountdownTimerProps {
+  duration: Duration;
+}
 
-  const isCountdownZero = duration.as("seconds") <= 1;
-
-  if (isCountdownZero) {
-    fireworks.current?.start();
-    return <FreeDom />;
-  }
-
+const CountdownTimer = ({ duration }: CountdownTimerProps) => {
   return (
     <div className="flex justify-center gap-3 sm:gap-8">
       <CountdownItem value={duration?.days} unit="day" />

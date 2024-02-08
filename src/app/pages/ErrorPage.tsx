@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-export default function ErrorPage() {
+const ErrorPage = () => {
   return (
     <div className="text-center mt-20">
       <h1 className="mb-4 text-6xl font-semibold text-red-500">404</h1>
@@ -30,4 +30,6 @@ export default function ErrorPage() {
       </p>
     </div>
   );
-}
+};
+
+export default ErrorPage;
