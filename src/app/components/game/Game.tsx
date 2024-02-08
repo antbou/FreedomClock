@@ -1,15 +1,19 @@
-import useKeyDown from "@hooks/useKeyDown";
-import { Stage, Container, Text } from "@pixi/react";
-import { AppContext } from "@/app/globals/context";
-import { useEffect, useState } from "react";
-import { GAME_SPEED } from "@/app/globals/enums";
 import { GAME_SIZE } from "@/app/globals/constants";
-import { Soldier } from "./soldier/Soldier";
-import { Obstacles } from "./obstacles/Obstacles";
-import { Ground } from "./ground/Ground";
+import { AppContext } from "@/app/globals/context";
+import { GAME_SPEED } from "@/app/globals/enums";
 import { PixiObject } from "@/app/globals/interfaces";
-import { GameOver } from "./GameOver/GameOver";
+import {
+  getGameHighScoreToLocalStorage,
+  setGameHighScoreToLocalStorage,
+} from "@/app/globals/utils";
+import useKeyDown from "@hooks/useKeyDown";
+import { Container, Stage, Text } from "@pixi/react";
+import { useEffect, useState } from "react";
 import { BtnRestart } from "./BtnRestart/BtnRestart";
+import { GameOver } from "./GameOver/GameOver";
+import { Ground } from "./ground/Ground";
+import { Obstacles } from "./obstacles/Obstacles";
+import { Soldier } from "./soldier/Soldier";
 
 interface GameProps {
   restartGame: () => void;
@@ -20,6 +24,7 @@ export const Game = ({ restartGame }: GameProps) => {
   const [gameSpeed, setGameSpeed] = useState(0);
   const [score, setScore] = useState(0);
   const [soldierRef, setSoldierRef] = useState<PixiObject | null>(null);
+  const [highScore] = useState(getGameHighScoreToLocalStorage());
 
   useKeyDown(() => {
     if (!gameOver) {
@@ -43,6 +48,15 @@ export const Game = ({ restartGame }: GameProps) => {
       clearInterval(intervalID);
     };
   }, [gameSpeed, gameOver, score]);
+
+  useEffect(() => {
+    if (gameOver) {
+      if (score > highScore) {
+        setGameHighScoreToLocalStorage(score);
+      }
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [gameOver]);
 
   useEffect(() => {
     if (score > 0 && score % 200 === 0) {
@@ -98,6 +112,11 @@ export const Game = ({ restartGame }: GameProps) => {
       </Container>
       <Container>
         <Text text={`Score: ${score}`} x={0} y={0} />
+        <Text
+          text={`Highest Score: ${highScore}`}
+          x={GAME_SIZE.WIDTH - (highScore.toString().length + 20) * 10}
+          y={0}
+        />
       </Container>
       <Container visible={gameOver}>
         <GameOver />
