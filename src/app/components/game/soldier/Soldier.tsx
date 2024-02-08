@@ -34,16 +34,16 @@ export const Soldier: FC<SoldierProps> = ({ setRef }) => {
     setJump(JUMP_STAGE.START);
   }, ["Space", "ArrowUp"]);
 
-  useTick(() => {
+  useTick((delta) => {
     if (jump === JUMP_STAGE.START) {
-      const newYPos = soldierYPos - gameSpeed / 3;
+      const newYPos = soldierYPos - (gameSpeed / 3) * delta;
       setsoldierYPos(newYPos);
       if (newYPos <= SOLDIER_POSITION.Y / 2 - 20) {
         setJump(JUMP_STAGE.END);
       }
     } else if (jump === JUMP_STAGE.END) {
       jumpProgress += 0.8;
-      const newYPos = soldierYPos + jumpProgress;
+      const newYPos = soldierYPos + jumpProgress * delta;
       setsoldierYPos(newYPos);
       if (newYPos >= SOLDIER_POSITION.Y) {
         setsoldierYPos(SOLDIER_POSITION.Y);

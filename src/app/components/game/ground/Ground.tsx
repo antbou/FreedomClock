@@ -10,8 +10,8 @@ export const Ground: FC<GroundProps> = () => {
   const [xBackground, setXBackground] = useState(-1);
   const { gameSpeed } = useContext(AppContext);
 
-  useTick(() => {
-    setXBackground(xBackground - gameSpeed * GROUND_SPEED);
+  useTick((delta) => {
+    setXBackground(xBackground - gameSpeed * GROUND_SPEED * delta);
   }, gameSpeed > 0);
 
   return (

@@ -52,6 +52,7 @@ export const Obstacles: FC<ObstaclesProps> = () => {
         x: obstacle.x - gameSpeed * GROUND_SPEED * delta,
       }))
     );
+
     // Remove obstacles that are off the screen
     setObstacles((prevObstacles) =>
       prevObstacles.filter((obstacle) => obstacle.x > -50)

@@ -78,7 +78,7 @@ export const Game = ({ restartGame }: GameProps) => {
     <Stage
       width={GAME_SIZE.WIDTH}
       height={GAME_SIZE.HEIGHT}
-      options={{ antialias: true, background: "#ffffff", resizeTo: window }}
+      options={{ antialias: false, background: "#ffffff", resizeTo: window }}
     >
       <Container sortableChildren={true}>
         <AppContext.Provider
