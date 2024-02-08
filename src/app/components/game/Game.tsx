@@ -1,19 +1,19 @@
-import { GAME_SIZE } from "@/app/globals/constants";
+import useKeyDown from "@hooks/useKeyDown";
+import { Stage, Container, Text } from "@pixi/react";
 import { AppContext } from "@/app/globals/context";
+import { useEffect, useState } from "react";
 import { GAME_SPEED } from "@/app/globals/enums";
+import { GAME_SIZE } from "@/app/globals/constants";
+import { Soldier } from "./soldier/Soldier";
+import { Obstacles } from "./obstacles/Obstacles";
+import { Ground } from "./ground/Ground";
 import { PixiObject } from "@/app/globals/interfaces";
+import { GameOver } from "./GameOver/GameOver";
+import { BtnRestart } from "./BtnRestart/BtnRestart";
 import {
   getGameHighScoreToLocalStorage,
   setGameHighScoreToLocalStorage,
 } from "@/app/globals/utils";
-import useKeyDown from "@hooks/useKeyDown";
-import { Container, Stage, Text } from "@pixi/react";
-import { useEffect, useState } from "react";
-import { BtnRestart } from "./BtnRestart/BtnRestart";
-import { GameOver } from "./GameOver/GameOver";
-import { Ground } from "./ground/Ground";
-import { Obstacles } from "./obstacles/Obstacles";
-import { Soldier } from "./soldier/Soldier";
 
 interface GameProps {
   restartGame: () => void;
