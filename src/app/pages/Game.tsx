@@ -1,14 +1,21 @@
 import { Game as GameComponent } from "@components/game/Game";
+import useKeyDown from "@hooks/useKeyDown";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function Game() {
   const [shouldRestart, setShouldRestart] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (shouldRestart) {
       setShouldRestart(false);
     }
   }, [shouldRestart]);
+
+  useKeyDown(() => {
+    navigate("/");
+  }, ["Escape"]);
 
   return (
     <div className="flex flex-col items-center w-full h-full gap-8 sm:gap-16">

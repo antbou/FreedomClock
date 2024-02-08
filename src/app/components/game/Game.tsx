@@ -24,6 +24,8 @@ export const Game = ({ restartGame }: GameProps) => {
   useKeyDown(() => {
     if (!gameOver) {
       setGameSpeed(GAME_SPEED.START);
+    } else {
+      handleResetBtn();
     }
   }, ["Space", "ArrowUp"]);
 
@@ -57,8 +59,8 @@ export const Game = ({ restartGame }: GameProps) => {
     if (!obstacleBounds || !soldierBounds) return;
 
     if (
-      soldierBounds.x < obstacleBounds.x + obstacleBounds.width &&
-      soldierBounds.x + soldierBounds.width > obstacleBounds.x &&
+      soldierBounds.x < obstacleBounds.x + obstacleBounds.width - 5 &&
+      soldierBounds.x + soldierBounds.width - 5 > obstacleBounds.x &&
       soldierBounds.y < obstacleBounds.y + obstacleBounds.height - 30 &&
       soldierBounds.y + soldierBounds.height - 30 > obstacleBounds.y
     ) {
