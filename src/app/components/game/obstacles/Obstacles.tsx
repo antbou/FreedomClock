@@ -36,7 +36,8 @@ export const Obstacles: FC<ObstaclesProps> = () => {
     []
   );
 
-  const minDistanceBetweenObstacles = 150;
+  const minDistanceBetweenObstacles = 175;
+  const maxNumberOfObstacles = 4;
 
   const calculateObstacleCreationProbability = useCallback(() => {
     const baseProbability = 0.02;
@@ -65,7 +66,8 @@ export const Obstacles: FC<ObstaclesProps> = () => {
     const canCreateObstacle =
       !lastObstacle ||
       (lastObstacle.x <= GAME_SIZE.WIDTH - minDistanceBetweenObstacles &&
-        Math.random() < obstacleCreationProbability);
+        Math.random() < obstacleCreationProbability &&
+        obstacles.length < maxNumberOfObstacles);
 
     if (canCreateObstacle) {
       const randomConfiguration =
